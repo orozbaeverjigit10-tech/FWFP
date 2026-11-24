@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FWFP | Free Water For People</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5faff;
+    color: #12334d;
+}
+
+/* HEADER */
+
+header {
+    background: white;
+    min-height: 85px;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 55px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #087fc1;
+}
+
+.brand small {
+    color: #607386;
+    font-size: 11px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #17324d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #08a6df;
+}
+
+.creator {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid #d5eafa;
+    padding-left: 18px;
+    min-width: 110px;
+}
+
+.creator span {
+    color: #607386;
+    font-size: 11px;
+}
+
+.creator strong {
+    color: #087fc1;
+    font-size: 17px;
+}
+
+.creator small {
+    color: #087fc1;
+    font-size: 11px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+
+    background:
+    linear-gradient(90deg,
+    rgba(0,30,60,0.85),
+    rgba(0,30,60,0.15)),
+    url("https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=85");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.12;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #42c6ff;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #079bd8;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #087fc1;
+    transform: translateY(-3px);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.section-title {
+    color: #087fc1;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 780px;
+    margin: auto;
+    color: #607386;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.stat {
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.stat h3 {
+    font-size: 30px;
+    color: #079bd8;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    color: #607386;
+}
+
+/* PROJECTS */
+
+.projects-section {
+    background: #eaf7ff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card h3 {
+    color: #087fc1;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #607386;
+    line-height: 1.7;
+}
+
+/* DONATION */
+
+.donation-section {
+    background: #e3f5ff;
+}
+
+.donation-box {
+    background: white;
+    max-width: 550px;
+    margin: 35px auto 0;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.donation-box h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.donation-box p {
+    color: #607386;
+    line-height: 1.6;
+}
+
+.amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.amount {
+    padding: 15px 5px;
+    border: 2px solid #b8e5f8;
+    background: white;
+    border-radius: 8px;
+    color: #087fc1;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.amount:hover,
+.amount.active {
+    background: #087fc1;
+    color: white;
+    border-color: #087fc1;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 9px 0;
+    border: 1px solid #cbdce8;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #079bd8;
+}
+
+.donation-box .btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+/* CONTACT */
+
+.contact-section {
+    background: white;
+}
+
+.contact-link {
+    display: inline-block;
+    color: #087fc1;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #102f4a;
+    color: white;
+    padding: 40px 8%;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #c4d8e8;
+    line-height: 1.8;
+}
+
+footer a {
+    color: #45c4ff;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid #38536b;
+    margin-top: 25px;
+    padding-top: 20px;
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .creator {
+        margin-left: auto;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 50px 7%;
+    }
+}
+
+@media(max-width: 420px) {
+    .logo {
+        font-size: 23px;
+    }
+
+    .brand-icon {
+        width: 40px;
+    }
+
+    .amounts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .donation-box {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <a href="#home" class="brand">
+
+        <svg class="brand-icon"
+        viewBox="0 0 100 120"
+        xmlns="http://www.w3.org/2000/svg">
+
+            <path d="M50 5 C35 35 8 65 8 85
+            A42 42 0 0 0 92 85
+            C92 65 65 35 50 5Z"
+            fill="#087fc1"/>
+
+            <circle cx="50" cy="75" r="24"
+            fill="white"/>
+
+            <path d="M27 70 L39 64 L48 68
+            L57 59 L70 65 L75 77
+            L65 83 L55 80 L48 91
+            L36 83 L29 77Z"
+            fill="#087fc1"/>
+
+            <path d="M50 51 C36 51 25 62 25 76
+            C25 90 36 101 50 101
+            C64 101 75 90 75 76"
+            fill="none" stroke="white"
+            stroke-width="2"/>
+
+        </svg>
+
+        <div>
+            <div class="logo">FWFP.</div>
+            <small>Free Water For People</small>
+        </div>
+
+    </a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="creator"
+    href="https://www.instagram.com/erj_17_?gwpx=MWZlcHoyemxoNmdkdA=="
+    target="_blank"
+    rel="noopener noreferrer">
+
+        <span>Created by</span>
+        <strong>Erjigit</strong>
+        <small>Instagram ↗</small>
+
+    </a>
+
+</header>
+
+<!-- HOME -->
+
+<div class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Clean Water<br>
+            Is a <span>Human Right</span>
+        </h1>
+
+        <p>
+            Millions of people around the world do not have
+            access to safe drinking water. Together, we can
+            change their lives and build a better future.
+        </p>
+
+        <a href="#donate" class="btn">
+            ♥ Donate Now →
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">Our Mission</h2>
+
+    <p class="description">
+        Free Water For People (FWFP) is a charity project
+        dedicated to helping people who do not have access
+        to clean drinking water.
+
+        We believe that every person deserves safe water,
+        regardless of their location or financial situation.
+
+        Our goal is to support communities and make the
+        world a better place, one drop at a time.
+    </p>
+
+    <div class="stats">
+
+        <div class="stat">
+            <h3>Water</h3>
+            <p>Clean drinking water for everyone.</p>
+        </div>
+
+        <div class="stat">
+            <h3>Hope</h3>
+            <p>A better future for communities.</p>
+        </div>
+
+        <div class="stat">
+            <h3>Life</h3>
+            <p>Every drop can make a difference.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects-section" id="projects">
+
+    <h2 class="section-title">Our Projects</h2>
+
+    <p class="description">
+        We support different solutions to help people
+        get access to clean and safe drinking water.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=700&q=80"
+            alt="Clean drinking water">
+
+            <div class="card-content">
+                <h3>Clean Drinking Water</h3>
+
+                <p>
+                    Helping communities get access to
+                    safe and clean drinking water.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80"
+            alt="Water and nature">
+
+            <div class="card-content">
+                <h3>Water Wells</h3>
+
+                <p>
+                    Supporting projects that bring
+                    water closer to people in need.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1513558161293-cdaf765edfd4?auto=format&fit=crop&w=700&q=80"
+            alt="Fresh water">
+
+            <div class="card-content">
+                <h3>Water Education</h3>
+
+                <p>
+                    Teaching communities about clean
+                    water, hygiene and sanitation.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DONATE -->
+
+<section class="donation-section" id="donate">
+
+    <h2 class="section-title">Make a Difference</h2>
+
+    <p class="description">
+        Your support can help bring clean drinking water
+        to people who need it. Every contribution matters!
+    </p>
+
+    <div class="donation-box">
+
+        <h3>Make a Donation</h3>
+
+        <p>Choose your donation amount:</p>
+
+        <div class="amounts">
+
+            <button class="amount active"
+            onclick="selectAmount(5, this)">$5</button>
+
+            <button class="amount"
+            onclick="selectAmount(10, this)">$10</button>
+
+            <button class="amount"
+            onclick="selectAmount(25, this)">$25</button>
+
+            <button class="amount"
+            onclick="selectAmount(50, this)">$50</button>
+
+        </div>
+
+        <input
+        type="number"
+        id="customAmount"
+        placeholder="Custom amount ($)"
+        min="0.01"
+        step="0.01"
+        oninput="selectCustom()">
+
+        <input
+        type="text"
+        id="name"
+        placeholder="Your full name">
+
+        <input
+        type="email"
+        id="email"
+        placeholder="Your email address">
+
+        <button class="btn" onclick="donate()">
+            DONATE NOW →
+        </button>
+
+        <p id="message"></p>
+
+        <p style="font-size:12px; margin-top:15px;">
+            Educational demo only. No real payment will be made.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+
+    <h2 class="section-title">Contact Us</h2>
+
+    <p class="description">
+        Thank you for supporting our mission.
+        Together, we can make clean water accessible to everyone.
+    </p>
+
+    <a class="contact-link"
+    href="https://www.instagram.com/erj_17_?gwpx=MWZlcHoyemxoNmdkdA=="
+    target="_blank"
+    rel="noopener noreferrer">
+        Follow FWFP's creator on Instagram ↗
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">💧 FWFP.</div>
+
+    <p>Free Water For People</p>
+
+    <p>Clean Water. Better Life. Brighter Future.</p>
+
+    <div class="footer-bottom">
+
+        <p>
+            Created by
+            <a href="https://www.instagram.com/erj_17_?gwpx=MWZlcHoyemxoNmdkdA=="
+            target="_blank"
+            rel="noopener noreferrer">
+                Erjigit
+            </a>
+        </p>
+
+        <p>© 2026 FWFP. All Rights Reserved.</p>
+
+    </div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+let donationAmount = 5;
+
+function selectAmount(amount, button) {
+
+    donationAmount = amount;
+
+    document.querySelectorAll(".amount").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.getElementById("customAmount").value = "";
+    document.getElementById("message").textContent = "";
+
+}
+
+function selectCustom() {
+
+    let value = document.getElementById("customAmount").value;
+
+    document.querySelectorAll(".amount").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    donationAmount = Number(value);
+
+    document.getElementById("message").textContent = "";
+
+}
+
+function donate() {
+
+    let name = document.getElementById("name").value.trim();
+
+    let email = document.getElementById("email").value.trim();
+
+    let custom = document.getElementById("customAmount").value;
+
+    let message = document.getElementById("message");
+
+    if (!name || !email) {
+
+        message.style.color = "red";
+
+        message.textContent =
+        "Please fill in all required fields.";
+
+        return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+        message.style.color = "red";
+
+        message.textContent =
+        "Please enter a valid email address.";
+
+        return;
+    }
+
+    let amount = custom === ""
+        ? donationAmount
+        : Number(custom);
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+
+        message.style.color = "red";
+
+        message.textContent =
+        "Please enter a valid donation amount.";
+
+        return;
+    }
+
+    message.style.color = "#087fc1";
+
+    message.textContent =
+        "Thank you, " + name +
+        "! Your demo donation of $" +
+        amount.toFixed(2) +
+        " has been recorded. No real payment was made.";
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("customAmount").value = "";
+
+    document.querySelectorAll(".amount").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    document.querySelector(".amount").classList.add("active");
+
+    donationAmount = 5;
+
+}
+
+</script>
+
+</body>
+</html>
